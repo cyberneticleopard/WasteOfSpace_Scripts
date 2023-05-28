@@ -7,21 +7,22 @@ BackgroundImageMode = Enum.ScaleType.Tile
 BackgroundImageTiling = 500
 
 local BackgroundText = Screen:CreateElement("TextLabel",{
-    Size = UDim2.fromScale(1,1),
-    ZIndex = 1,
-    TextScaled = true,
-    Text = "Loading..",
-    TextColor3 = Color3.new(1,1,1),
-    BackgroundTransparency = 1
+    Size = UDim2.fromScale(1,1);
+    ZIndex = 1;
+    TextScaled = true;
+    Text = "Loading..";
+    TextColor3 = Color3.new(1,1,1);
+    BackgroundTransparency = 1;
 })
 
 local BackgroundObject = Screen:CreateElement("ImageLabel",{
-    Size = UDim2.fromScale(1,1),
-    Image = "rbxassetid://3899340539", 
-    ScaleType = Enum.ScaleType.Tile, 
-    TileSize = UDim2.fromOffset(BackgroundImageTiling, BackgroundImageTiling),
-    ZIndex = 0,
-    BackgroundTransparency = 1
+    Size = UDim2.fromScale(1,1);
+    Image = "rbxassetid://3899340539";
+    ScaleType = Enum.ScaleType.Tile;
+    TileSize = UDim2.fromOffset(BackgroundImageTiling, BackgroundImageTiling);
+    ZIndex = 0;
+    BackgroundTransparency = 1;
+    ImageTransparency = 1;
 })
 task.wait(2.5)
 BackgroundText.TextColor3 = Color3.new(1,1,1)
@@ -30,14 +31,9 @@ BackgroundText.Text = "Successfully loaded, one moment while we gather all the r
 
 task.wait(5)
 
-BackgroundText.Text = "This message Should be Dissapearing Right about now."
-
-BackgroundText.Active = false
-BackgroundText.Visible = false
-
-task.wait(1)
-
-BackgroundText.Text = "Any day now...."
+for i = 1,1000 do
+    BackgroundObject.ImageTransparency -= 1/1000
+end
 
 local ChatLogUI
 
